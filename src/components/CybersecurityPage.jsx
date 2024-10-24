@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { AppBar, Toolbar, Button, Container, Typography, TextField, Box, Grid, Link, Paper } from "@mui/material";
 import { IconButton } from "@mui/material";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; // For the dropdown icons
@@ -11,6 +11,55 @@ import LockIcon from '@mui/icons-material/Lock';
 import BuildIcon from '@mui/icons-material/Build';
 
 const CybersecurityPage = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    })
+    console.log(formData);
+
+     // Convert form data to JSON string
+     const fileData = JSON.stringify(formData, null, 2);
+
+     // Create a Blob from the data
+     const blob = new Blob([fileData], { type: 'application/json' });
+ 
+     // Create a link element
+     const link = document.createElement('a');
+ 
+     // Set the download attribute with a filename
+     link.download = 'form-data.json';
+ 
+     // Create a URL for the Blob and set it as the href attribute
+     link.href = URL.createObjectURL(blob);
+ 
+     // Append the link to the document body
+     document.body.appendChild(link);
+ 
+     // Programmatically click the link to trigger the download
+     link.click();
+ 
+     // Clean up by removing the link element
+     document.body.removeChild(link);
+    // Handle form submission logic here
+  };
   const services = [
     {
       title: 'Endpoint Security Solutions',
@@ -200,7 +249,7 @@ const CybersecurityPage = () => {
           <Grid container spacing={3} justifyContent="center">
             <Grid item xs={3}>
               <Typography variant="h3" align="center" sx={{ fontWeight: "bold" }}>
-                6+
+                10+
               </Typography>
               <Typography variant="body1" align="center">
                 Years of Experience
@@ -304,7 +353,76 @@ const CybersecurityPage = () => {
       </Box>
 
 
-
+      <Container maxWidth="sm" sx={{ mt: 5 }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Contact Us
+      </Typography>
+      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField
+              name="name"
+              label="Name"
+              variant="filled"
+              fullWidth
+              required
+              value={formData.name}
+              onChange={handleChange}
+              sx={{backgroundColor:"white"}}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              name="email"
+              label="Email"
+              variant="filled"
+              fullWidth
+              required
+              value={formData.email}
+              onChange={handleChange}
+              sx={{backgroundColor:"white"}}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              name="subject"
+              label="Subject"
+              variant="filled"
+              fullWidth
+              value={formData.subject}
+              onChange={handleChange}
+              sx={{backgroundColor:"white"}}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              name="message"
+              label="Message"
+              variant="filled"
+              fullWidth
+              multiline
+              rows={4}
+              required
+              value={formData.message}
+              onChange={handleChange}
+              sx={{backgroundColor:"white"}}
+            />
+          </Grid>
+        </Grid>
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          // sx={{ mt: 3, mb: 2 }}
+          variant="contained"
+            color="primary"
+            sx={{ marginRight: 2, backgroundColor: "#00FFB2", color: "black", marginTop: "2vh" }}
+        >
+          Submit
+        </Button>
+      </Box>
+    </Container>
 
 
       <Box sx={{ backgroundColor: '#000', color: '#fff', p: 4, marginTop: "10vh" }}>
