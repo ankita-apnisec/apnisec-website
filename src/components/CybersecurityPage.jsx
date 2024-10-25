@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { AppBar, Toolbar, Button, Container, Typography, TextField, Box, Grid, Link, Paper } from "@mui/material";
 import { IconButton } from "@mui/material";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; // For the dropdown icons
@@ -35,29 +35,29 @@ const CybersecurityPage = () => {
     })
     console.log(formData);
 
-     // Convert form data to JSON string
-     const fileData = JSON.stringify(formData, null, 2);
+    // Convert form data to JSON string
+    const fileData = JSON.stringify(formData, null, 2);
 
-     // Create a Blob from the data
-     const blob = new Blob([fileData], { type: 'application/json' });
- 
-     // Create a link element
-     const link = document.createElement('a');
- 
-     // Set the download attribute with a filename
-     link.download = 'form-data.json';
- 
-     // Create a URL for the Blob and set it as the href attribute
-     link.href = URL.createObjectURL(blob);
- 
-     // Append the link to the document body
-     document.body.appendChild(link);
- 
-     // Programmatically click the link to trigger the download
-     link.click();
- 
-     // Clean up by removing the link element
-     document.body.removeChild(link);
+    // Create a Blob from the data
+    const blob = new Blob([fileData], { type: 'application/json' });
+
+    // Create a link element
+    const link = document.createElement('a');
+
+    // Set the download attribute with a filename
+    link.download = 'form-data.json';
+
+    // Create a URL for the Blob and set it as the href attribute
+    link.href = URL.createObjectURL(blob);
+
+    // Append the link to the document body
+    document.body.appendChild(link);
+
+    // Programmatically click the link to trigger the download
+    link.click();
+
+    // Clean up by removing the link element
+    document.body.removeChild(link);
     // Handle form submission logic here
   };
   const services = [
@@ -93,26 +93,19 @@ const CybersecurityPage = () => {
           borderBottom: "0.5px solid #f5f5f5", // Off-white border
           paddingLeft: "10vw", // Adjust left padding if needed
           paddingRight: "10vw", // Adjust right padding if needed
-          height: "10vh"
+          height: "10vh",
+          display: "flex",
+          justifyContent: "center"
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between", marginTop: "15px" }}>
-          {/* Left section with logo and text */}
-          {/* <Box sx={{ display: "flex", alignItems: "center" }}>
-            <IconButton disableRipple sx={{ color: "#00e3ab" }}>
-              <span style={{ width: '8px', height: '8px', backgroundColor: '#00e3ab', borderRadius: '50%', marginRight: '8px' }} />
-            </IconButton>
-            <Typography variant="h6" sx={{ color: "#fff", fontWeight: "bold" }}>
-              apni sec
-          </Typography>
-          </Box> */}
+        <Toolbar sx={{ justifyContent: "space-between" }}>
 
           {/* Middle section with dropdown buttons */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Button color="inherit" endIcon={<ArrowDropDownIcon />} sx={{ color: "#fff" }}>
+            <Button color="inherit" endIcon={<ArrowDropDownIcon />} sx={{ color: "#fff", fontSize: "1vw" }}>
               Products
           </Button>
-            <Button color="inherit" endIcon={<ArrowDropDownIcon />} sx={{ color: "#fff", marginLeft: "10px" }}>
+            <Button color="inherit" endIcon={<ArrowDropDownIcon />} sx={{ color: "#fff", marginLeft: "10px", fontSize: "1vw" }}>
               Services
           </Button>
           </Box>
@@ -121,7 +114,7 @@ const CybersecurityPage = () => {
           <Button
             variant="contained"
             color="primary"
-            sx={{ marginRight: 2, backgroundColor: "#00FFB2", color: "black", marginTop: "20px" }}
+            sx={{ marginRight: 2, backgroundColor: "#00FFB2", color: "black", marginTop: "10px", fontSize: "1vw" }}
           >
             Book a Demo
               </Button>
@@ -147,9 +140,9 @@ const CybersecurityPage = () => {
             width: "50vw",
             textAlign: "left",
             paddingLeft: "6vw",
-            marginTop: "20vh"
+            marginTop: "15vh"
           }}>
-          <Typography className="heading" sx={{ fontWeight: 900, fontSize: "60px" }}>
+          <Typography className="heading" sx={{ fontWeight: 900, fontSize: "3vw" }}>
             Comprehensive <span style={{ color: "#00FFB2" }}>Cybersecurity</span>
             <br /> Strategies for Growth and Resilience
           </Typography>
@@ -160,85 +153,107 @@ const CybersecurityPage = () => {
           <Button
             variant="contained"
             color="primary"
-            sx={{ marginRight: 2, backgroundColor: "#00FFB2", color: "black", marginTop: "2vh" }}
+            sx={{ marginRight: 2, backgroundColor: "#00FFB2", color: "black", marginTop: "20px", width: "18vw", fontSize: "1vw" }}
           >
             Book an Appointment
               </Button>
           <Button
             variant="outlined"
             color="primary"
-            sx={{ color: "#00FFB2", borderColor: "#00FFB2", marginTop: "2vh" }}
+            sx={{ color: "#00FFB2", borderColor: "#00FFB2", marginTop: "20px", width: "13vw", fontSize: "1vw" }}
           >
             Talk with Us
               </Button>
         </Box>
       </Box>
 
-
-
-      <Box className="content" sx={{ width: "100vw", height: "15vh", maxWidth: "100vw", backgroundColor: "#000" }}>
-        <Typography className="subheading" sx={{ marginTop: "20px" }}>
-          We are providing cybersecurity services to some of world's leading companies
-        </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-around", marginTop: "30px" }}>
+      <Box
+        className="content"
+        sx={{
+          width: "100vw",
+          height: "15vh",
+          maxWidth: "100vw",
+          backgroundColor: "#000",
+          padding: "1vh 0"
+        }}
+      >
+        <Typography
+          className="subheading"
+          sx={{
+            marginTop: "2vh",
+            fontSize: "1.5vw",
+            textAlign: "center",
+            color: "#fff"
+          }}
+        >
+          We are providing cybersecurity services to some of the world's leading companies
+  </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            marginTop: "3vh",
+            flexWrap: "wrap",
+            gap: "1vw"
+          }}
+        >
           <img
             src="/assets/ola.png"
-            alt="Nike"
+            alt="Ola"
             className="companyLogo"
+            style={{ height: "5vh" }}
           />
           <img
             src="/assets/dominos.png"
-            alt="Nike"
+            alt="Domino's"
             className="companyLogo"
+            style={{ height: "4vh" }}
           />
-
           <img
             src="/assets/meesho.png"
-            alt="Nike"
+            alt="Meesho"
             style={{
-              height: "25px",
-              marginTop: "10px"
+              height: "3vh"
             }}
           />
           <img
             src="/assets/carDekho1.png"
-            alt="Nike"
+            alt="CarDekho"
             style={{
-              height: "30px",
+              height: "3vh",
               filter: "invert(1)"
             }}
           />
           <img
             src="/assets/upgrad.png"
-            alt="Nike"
+            alt="Upgrad"
             style={{
-              height: "15px",
-              marginTop: "10px"
+              height: "2vh"
             }}
           />
           <img
             src="/assets/lenskart1.jpg"
-            alt="Nike"
+            alt="Lenskart"
             className="companyLogo"
+            style={{ height: "4vh" }}
           />
           <img
             src="/assets/kalki.png"
-            alt="Nike"
+            alt="Kalki"
             className="companyLogo"
+            style={{ height: "5vh" }}
           />
           <img
             src="/assets/delhivery.png"
-            alt="Nike"
+            alt="Delhivery"
             style={{
-              height: "15px",
-              marginTop: "20px",
+              height: "2vh",
               filter: "invert(1)"
             }}
           />
         </Box>
-
       </Box>
-
 
 
 
@@ -286,7 +301,7 @@ const CybersecurityPage = () => {
 
 
 
-      <Box sx={{ backgroundColor: '#000', color: '#fff', p: 5, marginTop: "10vh", height: "45vh" }}>
+      <Box sx={{ backgroundColor: '#000', color: '#fff', p: 5, marginTop: "10vh" }}>
         <Typography variant="h3" align="center" gutterBottom sx={{ fontWeight: 'bold', marginTop: "20px" }}>
           Services we offer
       </Typography>
@@ -354,75 +369,84 @@ const CybersecurityPage = () => {
 
 
       <Container maxWidth="sm" sx={{ mt: 5 }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Contact Us
+        <Typography variant="h4" align="center" gutterBottom>
+          Contact Us
       </Typography>
-      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField
-              name="name"
-              label="Name"
-              variant="filled"
-              fullWidth
-              required
-              value={formData.name}
-              onChange={handleChange}
-              sx={{backgroundColor:"white"}}
-            />
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                name="name"
+                label="Name"
+                variant="filled"
+                fullWidth
+                required
+                value={formData.name}
+                onChange={handleChange}
+                sx={{ backgroundColor: "white", borderRadius: "10px" }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                name="email"
+                label="Email"
+                variant="filled"
+                fullWidth
+                required
+                value={formData.email}
+                onChange={handleChange}
+                sx={{ backgroundColor: "white", borderRadius: "10px" }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                name="subject"
+                label="Subject"
+                variant="filled"
+                fullWidth
+                value={formData.subject}
+                onChange={handleChange}
+                sx={{ backgroundColor: "white", borderRadius: "10px" }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                name="message"
+                label="Message"
+                variant="filled"
+                fullWidth
+                multiline
+                rows={4}
+                required
+                value={formData.message}
+                onChange={handleChange}
+                sx={{ backgroundColor: "white", borderRadius: "10px" }}
+              />
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <TextField
-              name="email"
-              label="Email"
-              variant="filled"
-              fullWidth
-              required
-              value={formData.email}
-              onChange={handleChange}
-              sx={{backgroundColor:"white"}}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              name="subject"
-              label="Subject"
-              variant="filled"
-              fullWidth
-              value={formData.subject}
-              onChange={handleChange}
-              sx={{backgroundColor:"white"}}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              name="message"
-              label="Message"
-              variant="filled"
-              fullWidth
-              multiline
-              rows={4}
-              required
-              value={formData.message}
-              onChange={handleChange}
-              sx={{backgroundColor:"white"}}
-            />
-          </Grid>
-        </Grid>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          // sx={{ mt: 3, mb: 2 }}
-          variant="contained"
+          {/* <Button
+            type="submit"
+            fullWidth
+            variant="contained"
             color="primary"
-            sx={{ marginRight: 2, backgroundColor: "#00FFB2", color: "black", marginTop: "2vh" }}
-        >
-          Submit
-        </Button>
-      </Box>
-    </Container>
+            // sx={{ mt: 3, mb: 2 }}
+            variant="contained"
+            color="primary"
+            sx={{ marginRight: 2, backgroundColor: "#00FFB2", color: "black", marginTop: "2vh", borderRadius: "10px" }}
+          >
+            Submit
+        </Button> */}
+          <Button
+            type="submit"
+            fullWidth
+            variant="outlined"
+            color="primary"
+            sx={{ color: "#00FFB2", borderColor: "#00FFB2", marginTop: "20px", borderRadius: "10px"  }}
+          >
+            Talk with Us
+              </Button>
+        </Box>
+      </Container>
 
 
       <Box sx={{ backgroundColor: '#000', color: '#fff', p: 4, marginTop: "10vh" }}>
@@ -435,16 +459,22 @@ const CybersecurityPage = () => {
             <Link href="#" color="inherit" underline="hover">Security Servers</Link><br />
             <Link href="#" color="inherit" underline="hover">Security FireWalls</Link><br />
             <Link href="#" color="inherit" underline="hover">Cloud Services</Link><br />
-            <Link href="#" color="inherit" underline="hover">Integrations</Link>
+            <Link href="#" color="inherit" underline="hover">Social Engineering</Link>
           </Grid>
 
           {/* Partners */}
           <Grid item xs={12} sm={3}>
-            <Typography variant="h6" gutterBottom>Partners</Typography>
-            <Link href="#" color="inherit" underline="hover">Amazon</Link><br />
-            <Link href="#" color="inherit" underline="hover">Figma</Link><br />
-            <Link href="#" color="inherit" underline="hover">Twitter</Link><br />
-            <Link href="#" color="inherit" underline="hover">CloudRail-IIOT</Link>
+            <Typography variant="h6" gutterBottom>Clients</Typography>
+            <Link href="#" color="inherit" underline="hover">Lipspace</Link><br />
+            <Link href="#" color="inherit" underline="hover">Oziva</Link><br />
+            <Link href="#" color="inherit" underline="hover">RangDe</Link><br />
+            <Link href="#" color="inherit" underline="hover">WorkIndia</Link><br />
+            <Link href="#" color="inherit" underline="hover">Axio</Link><br />
+            <Link href="#" color="inherit" underline="hover">Purplle</Link><br />
+            <Link href="#" color="inherit" underline="hover">Blackbucn</Link><br />
+            <Link href="#" color="inherit" underline="hover">mCaffeine</Link><br />
+            <Link href="#" color="inherit" underline="hover">Precisa</Link><br />
+            <Link href="#" color="inherit" underline="hover">Tribytetech</Link>
           </Grid>
 
           {/* Resources */}
